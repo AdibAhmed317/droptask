@@ -52,7 +52,6 @@ export class AuthService {
       email: user.email,
       sub: user.sub,
     };
-
     return {
       accessToken: await this.jwtService.signAsync(payload, {
         expiresIn: '5h',
