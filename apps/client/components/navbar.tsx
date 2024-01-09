@@ -15,7 +15,10 @@ export const Navbar = () => {
         <Logo />
         <div className='space-x-4 md:block md:w-auto flex items-center justify-between w-full'>
           {session && session.user ? (
-            <p>{session.user.name}</p>
+            <>
+              <p>{session.user.name}</p>
+              <p>{session.user.name}</p>
+            </>
           ) : (
             <>
               <Button size='sm' variant='outline' asChild>
