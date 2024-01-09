@@ -17,7 +17,7 @@ export const Navbar = () => {
           {session && session.user ? (
             <>
               <p>{session.user.name}</p>
-              <p>{session.user.name}</p>
+              <Link href='/api/auth/signout'>Sign out</Link>
             </>
           ) : (
             <>
