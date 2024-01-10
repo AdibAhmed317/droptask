@@ -4,7 +4,7 @@ import Logo from '@/components/logo';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
-import { signIn, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 export const Navbar = () => {
   const { data: session } = useSession();
@@ -16,8 +16,12 @@ export const Navbar = () => {
         <div className='space-x-4 md:block md:w-auto flex items-center justify-between w-full'>
           {session && session.user ? (
             <>
-              <p>{session.user.name}</p>
-              <Link href='/api/auth/signout'>Sign out</Link>
+              <div className='flex gap-5'>
+                <p>{session.user.name}</p>
+                <Link className='text-red-500' href='/api/auth/signout'>
+                  Sign out
+                </Link>
+              </div>
             </>
           ) : (
             <>
