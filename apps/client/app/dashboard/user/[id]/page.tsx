@@ -1,5 +1,5 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import { Backend_URL } from '@/lib/Constants';
+import { Backend_URL } from '@/lib/constants';
 import { getServerSession } from 'next-auth';
 
 type Props = {
@@ -10,6 +10,7 @@ type Props = {
 
 const ProfilePage = async (props: Props) => {
   const session = await getServerSession(authOptions);
+
   const response = await fetch(Backend_URL + `/user/${props.params.id}`, {
     method: 'GET',
     headers: {
@@ -17,7 +18,6 @@ const ProfilePage = async (props: Props) => {
       'Content-Type': 'application/json',
     },
   });
-  // console.log({ response });
   const user = await response.json();
 
   return (

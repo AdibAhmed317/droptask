@@ -15,6 +15,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import Link from 'next/link';
+import { Backend_URL } from '@/lib/constants';
+import axios from 'axios';
 
 const FormSchema = z
   .object({
@@ -42,8 +44,27 @@ const SignUpForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    try {
+      const res = await axios.post(
+        `${Backend_URL}/auth/registration`,
+        {
+          name: values.name,
+          email: values.email,
+          password: values.password,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      alert('User Registered!');
+      console.log({ response: res.data });
+    } catch (error) {
+      alert('User Register failed!');
+      console.log(error);
+    }
   };
 
   return (
@@ -57,7 +78,7 @@ const SignUpForm = () => {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder='Enter your name' {...field} />
+                  <Input placeholder='Enter your name' {...field} name='name' />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -70,7 +91,11 @@ const SignUpForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder='mail@example.com' {...field} />
+                  <Input
+                    placeholder='mail@example.com'
+                    {...field}
+                    name='email'
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -87,6 +112,7 @@ const SignUpForm = () => {
                     placeholder='Enter your password'
                     type='password'
                     {...field}
+                    name='password'
                   />
                 </FormControl>
                 <FormMessage />
@@ -104,6 +130,7 @@ const SignUpForm = () => {
                     placeholder='Re-enter your password'
                     type='password'
                     {...field}
+                    name='confirmPassword'
                   />
                 </FormControl>
                 <FormMessage />

@@ -18,6 +18,9 @@ export const Navbar = () => {
             <>
               <div className='flex gap-5'>
                 <p>{session.user.name}</p>
+                <Link className='text-green-500' href='/dashboard'>
+                  Dashboard
+                </Link>
                 <Link className='text-red-500' href='/api/auth/signout'>
                   Sign out
                 </Link>
