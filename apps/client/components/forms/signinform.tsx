@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Form,
   FormControl,
@@ -15,13 +15,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
+import { Spinner } from 'flowbite-react';
 
 const FormSchema = z.object({
   email: z.string().min(1, 'Email is required.').email('Invalid email'),
-  password: z
-    .string()
-    .min(1, 'Password is required.')
-    .min(8, 'Password at least contain 8 characters'),
+  password: z.string().min(1, 'Password is required.'),
 });
 
 const SignInForm = () => {
@@ -29,8 +28,17 @@ const SignInForm = () => {
     resolver: zodResolver(FormSchema),
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    setIsLoading(true);
     console.log(values);
+    const res = await signIn('credentials', {
+      email: values.email,
+      password: values.password,
+      redirect: true,
+      callbackUrl: '/dashboard',
+    });
   };
 
   return (
@@ -66,8 +74,10 @@ const SignInForm = () => {
             </FormItem>
           )}
         />
-        <Button className='w-full bg-black/70' type='submit'>
-          Sign in
+        <Button
+          className={`w-full bg-black/70 disabled:${isLoading}`}
+          type='submit'>
+          {isLoading ? <Spinner aria-label='Signup Spinner' /> : 'Sign up'}
         </Button>
       </form>
       <div className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:black before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>
