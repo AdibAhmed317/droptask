@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useSession } from 'next-auth/react';
 import { Avatar, Dropdown } from 'flowbite-react';
+import second from '../public/logo.jpeg';
 
 export const Navbar = () => {
   const { data: session } = useSession();
@@ -22,7 +23,7 @@ export const Navbar = () => {
                   Dashboard
                 </Link>
                 <Dropdown
-                  label={<Avatar alt='profile' img='' rounded />}
+                  label={<Avatar alt='profile' img={second.src} rounded />}
                   arrowIcon={false}
                   inline
                   size=''>
@@ -33,7 +34,6 @@ export const Navbar = () => {
                     </span>
                   </Dropdown.Header>
                   <Dropdown.Item>Settings</Dropdown.Item>
-                  <Dropdown.Item>Earnings</Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item>
                     <Link className='text-red-500' href='/api/auth/signout'>

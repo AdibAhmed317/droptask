@@ -11,7 +11,7 @@ const DashboardLayout = async (props: Props) => {
       <Navbar />
       <div className='flex'>
         <Sidebar />
-        <div className='mt-20 p-5'>{props.children}</div>
+        <div className='pt-14 w-full'>{props.children}</div>
       </div>
     </>
   );

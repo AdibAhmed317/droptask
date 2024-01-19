@@ -77,7 +77,7 @@ const SignInForm = () => {
         <Button
           className={`w-full bg-black/70 disabled:${isLoading}`}
           type='submit'>
-          {isLoading ? <Spinner aria-label='Signup Spinner' /> : 'Sign up'}
+          {isLoading ? <Spinner aria-label='Signup Spinner' /> : 'Sign In'}
         </Button>
       </form>
       <div className='mx-auto my-4 flex w-full items-center justify-evenly before:mr-4 before:black before:h-px before:flex-grow before:bg-stone-400 after:ml-4 after:block after:h-px after:flex-grow after:bg-stone-400'>
