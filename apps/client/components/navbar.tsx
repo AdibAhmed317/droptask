@@ -4,9 +4,16 @@ import Logo from '@/components/logo';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { Avatar, Dropdown } from 'flowbite-react';
 import second from '../public/logo.jpeg';
+import { Poppins, Roboto } from 'next/font/google';
+import { cn } from '@/lib/utils';
+
+const textFont = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '500'],
+});
 
 export const Navbar = () => {
   const { data: session } = useSession();
@@ -19,11 +26,15 @@ export const Navbar = () => {
           {session && session.user ? (
             <>
               <div className='flex justify-center items-center gap-5'>
-                <Link className='text-green-500' href='/dashboard'>
+                <Link
+                  className={cn('text-gray-900', textFont.className)}
+                  href='/dashboard'>
                   Dashboard
                 </Link>
                 <Dropdown
-                  label={<Avatar alt='profile' img={second.src} rounded />}
+                  label={
+                    <Avatar alt='profile' img={second.src} rounded bordered />
+                  }
                   arrowIcon={false}
                   inline
                   size=''>
@@ -36,9 +47,12 @@ export const Navbar = () => {
                   <Dropdown.Item>Settings</Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item>
-                    <Link className='text-red-500' href='/api/auth/signout'>
+                    {/* <Link className='text-red-500' href='/api/auth/signout'>
                       Sign out
-                    </Link>
+                    </Link> */}
+                    <button className='text-red-500' onClick={() => signOut()}>
+                      Sign out
+                    </button>
                   </Dropdown.Item>
                 </Dropdown>
               </div>

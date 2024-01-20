@@ -9,7 +9,7 @@ const DashboardLayout = async (props: Props) => {
   return (
     <>
       <Navbar />
-      <div className='flex'>
+      <div className='flex flex-col sm:flex-row'>
         <Sidebar />
         <div className='pt-14 w-full'>{props.children}</div>
       </div>
