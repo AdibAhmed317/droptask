@@ -1,12 +1,12 @@
 'use client';
 
+import React, { useState } from 'react';
 import { useSession } from 'next-auth/react';
-import React from 'react';
 import Link from 'next/link';
 import { Button } from '../ui/button';
-import localFont from 'next/font/local';
 import { Poppins, Roboto } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import CreateOrganizationModal from './CreateModal';
 
 const textFont = Roboto({
   subsets: ['latin'],
@@ -20,6 +20,7 @@ const createFont = Poppins({
 
 const Sidebar = () => {
   const { data: session } = useSession();
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className='sm:min-h-screen bg-gray-700 shadow-lg pt-16 text-white/75'>
@@ -28,9 +29,15 @@ const Sidebar = () => {
         className={cn(
           'bg-gray-600 hover:bg-gray-950 hover:text-gray-100 m-2',
           createFont.className
-        )}>
+        )}
+        onClick={() => setOpenModal(true)}>
         Create Organization (5 left)
       </Button>
+
+      <CreateOrganizationModal
+        openModal={openModal}
+        onClose={() => setOpenModal(false)}
+      />
 
       <ul
         className={cn(
@@ -58,7 +65,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-{
-  /* href={`/dashboard/user/${session?.user.id}`}> */
-}

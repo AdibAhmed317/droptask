@@ -1,6 +1,5 @@
 'use client';
 
-import Logo from '@/components/logo';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -9,6 +8,7 @@ import { Avatar, Dropdown } from 'flowbite-react';
 import second from '../public/logo.jpeg';
 import { Poppins, Roboto } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import Logo from './Logo';
 
 const textFont = Poppins({
   subsets: ['latin'],
@@ -47,9 +47,6 @@ export const Navbar = () => {
                   <Dropdown.Item>Settings</Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item>
-                    {/* <Link className='text-red-500' href='/api/auth/signout'>
-                      Sign out
-                    </Link> */}
                     <button className='text-red-500' onClick={() => signOut()}>
                       Sign out
                     </button>

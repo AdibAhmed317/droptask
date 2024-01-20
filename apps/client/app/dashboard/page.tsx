@@ -1,5 +1,4 @@
 import React from 'react';
-import localFont from 'next/font/local';
 import { cn } from '@/lib/utils';
 import { Poppins, Roboto } from 'next/font/google';
 import { Button } from '@/components/ui/button';
