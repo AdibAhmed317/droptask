@@ -69,7 +69,7 @@ const SignUpForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='w-full'>
+      <form onSubmit={form.handleSubmit(onSubmit)}>
         <div className='space-y-3'>
           <FormField
             control={form.control}
@@ -91,11 +91,7 @@ const SignUpForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder='mail@example.com'
-                    {...field}
-                    name='email'
-                  />
+                  <Input placeholder='ex@mail.com' {...field} name='email' />
                 </FormControl>
                 <FormMessage />
               </FormItem>

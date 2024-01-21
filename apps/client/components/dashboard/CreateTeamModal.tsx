@@ -1,22 +1,22 @@
 import React from 'react';
 import { Modal } from 'flowbite-react';
 import { Button } from '../ui/button';
-import CreateOrganizationForm from '../forms/CreateOrgForm';
+import CreateTeamForm from '../forms/CreateTeamForm';
 
-interface CreateOrganizationModalProps {
+interface CreateTeamModalProps {
   openModal: boolean;
   onClose: () => void;
 }
 
-const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
+const CreateTeamModal: React.FC<CreateTeamModalProps> = ({
   openModal,
   onClose,
 }) => {
   return (
     <Modal show={openModal} onClose={onClose}>
-      <Modal.Header>Create Organization (5 left)</Modal.Header>
+      <Modal.Header>Create Team (5 left)</Modal.Header>
       <Modal.Body>
-        <CreateOrganizationForm />
+        <CreateTeamForm />
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onClose} variant='default'>
@@ -30,4 +30,4 @@ const CreateOrganizationModal: React.FC<CreateOrganizationModalProps> = ({
   );
 };
 
-export default CreateOrganizationModal;
+export default CreateTeamModal;

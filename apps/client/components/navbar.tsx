@@ -19,7 +19,7 @@ export const Navbar = () => {
   const { data: session } = useSession();
 
   return (
-    <div className='fixed top-0 w-full h-14 px-4 border-b shadow-sm bg-white flex items-center'>
+    <div className='fixed top-0 w-full h-14 px-4 border-b shadow-sm bg-slate-200 flex items-center'>
       <div className='md:max-w-screen-2xl mx-auto flex items-center w-full justify-between'>
         <Logo />
         <div className='space-x-4 md:block md:w-auto flex items-center justify-center w-full'>
@@ -46,11 +46,11 @@ export const Navbar = () => {
                   </Dropdown.Header>
                   <Dropdown.Item>Settings</Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item>
-                    <button className='text-red-500' onClick={() => signOut()}>
-                      Sign out
-                    </button>
-                  </Dropdown.Item>
+                  <button
+                    className='text-red-500 text-sm mb-2 mx-4 w-full text-start'
+                    onClick={() => signOut()}>
+                    Sign out
+                  </button>
                 </Dropdown>
               </div>
             </>

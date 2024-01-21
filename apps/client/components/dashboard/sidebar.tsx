@@ -31,7 +31,7 @@ const Sidebar = () => {
           createFont.className
         )}
         onClick={() => setOpenModal(true)}>
-        Create Organization (5 left)
+        Create Organization (3 left)
       </Button>
 
       <CreateOrganizationModal
@@ -47,17 +47,17 @@ const Sidebar = () => {
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
-          Org 1
+          Organization 1
         </Link>
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
-          Org 2
+          Organization 2
         </Link>
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
-          Org 3
+          Organization 3
         </Link>
       </ul>
     </div>

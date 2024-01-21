@@ -51,7 +51,7 @@ const SignInForm = () => {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder='mail@example.com' {...field} />
+                <Input placeholder='ex@mail.com' {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

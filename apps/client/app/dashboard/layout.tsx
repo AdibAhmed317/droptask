@@ -1,5 +1,4 @@
 import { Navbar } from '@/components/Navbar';
-import Sidebar from '@/components/dashboard/Sidebar';
 
 type Props = {
   children: React.ReactNode;
@@ -7,13 +6,10 @@ type Props = {
 
 const DashboardLayout = async (props: Props) => {
   return (
-    <>
+    <div className='bg-slate-100'>
       <Navbar />
-      <div className='flex flex-col sm:flex-row'>
-        <Sidebar />
-        <div className='pt-14 w-full'>{props.children}</div>
-      </div>
-    </>
+      <div>{props.children}</div>
+    </div>
   );
 };
 

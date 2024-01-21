@@ -9,18 +9,18 @@ const textFont = Roboto({
   weight: ['400'],
 });
 
-const CreateOrganizationForm = () => {
+const CreateTeamForm = () => {
   return (
     <div>
       <div className=''>
         <Label>
-          Organization Name <br />
+          Team Name <br />
           <Input type='text' className='bg-gray-100 w-1/2' />
         </Label>
         <div className='mx-auto my-4 border-t border-stone-400 w-full'></div>
         <div>
           <p className={cn('text-sm', textFont.className)}>
-            You can invite members to you organization.
+            Add members invite members to the team.
             <a href='#' className='text-blue-500'>
               {' '}
               Click here
@@ -32,4 +32,4 @@ const CreateOrganizationForm = () => {
   );
 };
 
-export default CreateOrganizationForm;
+export default CreateTeamForm;
