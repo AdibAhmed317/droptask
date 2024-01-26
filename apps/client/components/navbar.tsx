@@ -26,11 +26,13 @@ export const Navbar = () => {
           {session && session.user ? (
             <>
               <div className='flex justify-center items-center gap-5'>
-                <Link
-                  className={cn('text-gray-900', textFont.className)}
-                  href='/dashboard'>
-                  Dashboard
-                </Link>
+                <Button variant='ghost'>
+                  <Link
+                    className={cn('text-black/75', textFont.className)}
+                    href='/dashboard'>
+                    Dashboard
+                  </Link>
+                </Button>
                 <Dropdown
                   label={
                     <Avatar alt='profile' img={second.src} rounded bordered />
@@ -46,11 +48,13 @@ export const Navbar = () => {
                   </Dropdown.Header>
                   <Dropdown.Item>Settings</Dropdown.Item>
                   <Dropdown.Divider />
-                  <button
-                    className='text-red-500 text-sm mb-2 mx-4 w-full text-start'
-                    onClick={() => signOut()}>
-                    Sign out
-                  </button>
+                  <Dropdown.Item>
+                    <button
+                      className='text-red-500 w-full'
+                      onClick={() => signOut()}>
+                      Sign out
+                    </button>
+                  </Dropdown.Item>
                 </Dropdown>
               </div>
             </>

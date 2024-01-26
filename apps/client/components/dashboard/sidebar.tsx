@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import { Poppins, Roboto } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import CreateOrganizationModal from './CreateModal';
+import { Avatar } from 'flowbite-react';
 
 const textFont = Roboto({
   subsets: ['latin'],
@@ -47,16 +48,19 @@ const Sidebar = () => {
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
+          <Avatar size='sm' className='mr-2' />
           Organization 1
         </Link>
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
+          <Avatar size='sm' className='mr-2' />
           Organization 2
         </Link>
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
+          <Avatar size='sm' className='mr-2' />
           Organization 3
         </Link>
       </ul>
