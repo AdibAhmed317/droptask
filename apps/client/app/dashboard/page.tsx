@@ -25,8 +25,8 @@ const DashboardPage = () => {
     <div className='flex flex-col sm:flex-row'>
       <Sidebar />
       <div className='pt-14 w-full'>
-        <nav className='w-full h-20 p-4 border-b border-gray-500 shadow-lg text-black bg-gray-500 flex justify-between items-center px-16'>
-          <h1 className={cn('text-2xl mx-10 text-white', createFont.className)}>
+        <nav className='w-full h-20 border-b border-gray-500 shadow-lg text-black bg-gray-500 flex justify-between items-center px-16'>
+          <h1 className={cn('text-2xl text-white', createFont.className)}>
             Organization 1
           </h1>
           <Button

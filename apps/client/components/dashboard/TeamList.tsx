@@ -12,7 +12,7 @@ const TeamList = () => {
   return (
     <div className='grid grid-cols-2 md:grid-cols-5 gap-2'>
       <section className='container mt-10'>
-        <Link href='/dashboard/team/1'>
+        <Link href='/dashboard/team/1/kanban'>
           <div className='max-w-[15rem] bg-gray-50 shadow-lg rounded-lg overflow-hidden'>
             <div className='flex items-center justify-center bg-gray-500 h-24'>
               <h2 className='text-white text-4xl font-semibold'>DT</h2>
@@ -26,7 +26,7 @@ const TeamList = () => {
         </Link>
       </section>
       <section className='container mt-10'>
-        <Link href='/'>
+        <Link href='/dashboard/team/1/board'>
           <div className='max-w-[15rem] bg-gray-50 shadow-lg rounded-lg overflow-hidden'>
             <div className='flex items-center justify-center bg-gray-500 h-24'>
               <h2 className='text-white text-4xl font-semibold'>DT</h2>
@@ -40,7 +40,7 @@ const TeamList = () => {
         </Link>
       </section>
       <section className='container mt-10'>
-        <Link href='/'>
+        <Link href='/dashboard/team/1/board'>
           <div className='max-w-[15rem] bg-gray-50 shadow-lg rounded-lg overflow-hidden'>
             <div className='flex items-center justify-center bg-gray-500 h-24'>
               <h2 className='text-white text-4xl font-semibold'>MT</h2>
