@@ -48,19 +48,19 @@ const Sidebar = () => {
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
-          <Avatar size='sm' className='mr-2' />
+          <Avatar size='sm' className='mr-2' placeholderInitials='O1' />
           Organization 1
         </Link>
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
-          <Avatar size='sm' className='mr-2' />
+          <Avatar size='sm' className='mr-2' placeholderInitials='O2' />
           Organization 2
         </Link>
         <Link
           href={`/dashboard/user/${session?.user.id}`}
           className='h-10 w-full text-center hover:bg-gray-600 hover:text-white flex justify-center items-center p-6 transition-all'>
-          <Avatar size='sm' className='mr-2' />
+          <Avatar size='sm' className='mr-2' placeholderInitials='O3' />
           Organization 3
         </Link>
       </ul>

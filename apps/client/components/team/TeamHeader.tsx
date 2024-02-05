@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils';
 import { Poppins } from 'next/font/google';
 import Link from 'next/link';
 import React from 'react';
+import { Button } from '../ui/button';
 
 const createFont = Poppins({
   subsets: ['latin'],
@@ -15,10 +16,18 @@ const TeamHeader = () => {
         <h1 className={cn('text-2xl text-white', createFont.className)}>
           Developer Team
         </h1>
-        <div className='flex gap-5 text-white'>
-          <Link href='/dashboard/team/1/kanban'>Kanban Board</Link>
-          <Link href='/dashboard/team/1/chat'>Chat</Link>
-          <Link href='/dashboard/team/1/canvas'>Canvas</Link>
+        <div className='flex text-white'>
+          <Link href='/dashboard/team/1/kanban'>
+            <Button variant='ghost'>Kanban Board</Button>
+          </Link>
+
+          <Link href='/dashboard/team/1/chat'>
+            <Button variant='ghost'>Chat</Button>
+          </Link>
+
+          <Link href='/dashboard/team/1/canvas'>
+            <Button variant='ghost'>Chat</Button>
+          </Link>
         </div>
       </nav>
     </div>

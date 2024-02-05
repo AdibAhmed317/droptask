@@ -18,6 +18,8 @@ module.exports = {
     },
     extend: {
       colors: {
+        mainBackgroundColor: '#0D1117',
+        columnBackgroundColor: '#161C22',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

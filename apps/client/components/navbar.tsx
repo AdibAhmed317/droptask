@@ -26,13 +26,11 @@ export const Navbar = () => {
           {session && session.user ? (
             <>
               <div className='flex justify-center items-center gap-5'>
-                <Button variant='ghost'>
-                  <Link
-                    className={cn('text-black/75', textFont.className)}
-                    href='/dashboard'>
-                    Dashboard
-                  </Link>
-                </Button>
+                <Link
+                  className={cn('text-black/75', textFont.className)}
+                  href='/dashboard'>
+                  <Button variant='ghost'>Dashboard</Button>
+                </Link>
                 <Dropdown
                   label={
                     <Avatar alt='profile' img={second.src} rounded bordered />
