@@ -1,6 +1,4 @@
-import Column from '@/components/team/kanban/Column';
 import KanbanBoard from '@/components/team/kanban/KanbanBoard';
-import { Button } from '@/components/ui/button';
 import React from 'react';
 
 const KanbanPage = () => {
