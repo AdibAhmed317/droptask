@@ -12,7 +12,7 @@ const createFont = Poppins({
 const TeamHeader = () => {
   return (
     <div className='pt-14'>
-      <nav className='w-full h-20 px-28 shadow-xl text-black bg-gray-500 flex justify-between items-center'>
+      <nav className='w-full h-20 min-w-fit px-28 shadow-xl text-black bg-gray-500 flex justify-between items-center'>
         <h1 className={cn('text-2xl text-white', createFont.className)}>
           Developer Team
         </h1>

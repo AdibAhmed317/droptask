@@ -2,9 +2,10 @@
 
 import { Button } from '@/components/ui/button';
 import { Column } from '@/lib/types';
-import PlusIcon from '@/public/icons/PlusIcon';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import ColumnContainer from './ColumnContainer';
+import { PlusCircle } from 'lucide-react';
 
 const KanbanBoard = () => {
   const [columns, setColumns] = useState<Column[]>([]);
@@ -24,13 +25,13 @@ const KanbanBoard = () => {
       <div className='m-auto flex gap-4'>
         <div className='flex gap-4'>
           {columns.map((col) => (
-            <div>{col.title}</div>
+            <ColumnContainer column={col} />
           ))}
         </div>
         <Button
           className='h-6 text-xs bg-gray-300 text-black/75 hover:text-white/95 flex gap-2'
           onClick={createColumn}>
-          <PlusIcon />
+          <PlusCircle className='max-h-4' />
           Add column
         </Button>
       </div>
