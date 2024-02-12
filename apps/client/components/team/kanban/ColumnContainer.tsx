@@ -8,7 +8,6 @@ interface ColumnContainerProps {
 }
 
 const ColumnContainer = ({ column, deleteColumn }: ColumnContainerProps) => {
-  const deleteColumn = () => {};
   return (
     <div className='bg-gray-300 w-[350px] h-[500px] max-h-[500px] rounded-md flex flex-col'>
       <div className='bg-gray-700 text-sm text-white h-[60px] cursor-grab rounded-md rounded-b-none p-3 font-semibold border-columnBackgroundColor border-1 flex items-center justify-between'>
@@ -19,7 +18,7 @@ const ColumnContainer = ({ column, deleteColumn }: ColumnContainerProps) => {
           {column.title}
         </div>
         <button onClick={() => deleteColumn(column.id)}>
-          <TrashIcon className='max-h-4' />
+          <TrashIcon className='max-h-4 w-full' />
         </button>
       </div>
       <div className='flex flex-grow'>Content</div>
