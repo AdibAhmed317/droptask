@@ -2,13 +2,16 @@
 
 import { Button } from '@/components/ui/button';
 import { Column, Id } from '@/lib/types';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import ColumnContainer from './ColumnContainer';
 import { PlusCircle } from 'lucide-react';
+import { DndContext } from '@dnd-kit/core';
+import { SortableContext } from '@dnd-kit/sortable';
 
 const KanbanBoard = () => {
   const [columns, setColumns] = useState<Column[]>([]);
+  const columnsId = useMemo(() => columns.map((col) => col.id), [columns]);
 
   const createColumn = () => {
     const columnToAdd: Column = {
@@ -19,25 +22,35 @@ const KanbanBoard = () => {
   };
 
   const deleteColumn = (id: Id) => {
+    console.log('called');
+
     const filteredColumns = columns.filter((col) => col.id !== id);
     setColumns(filteredColumns);
   };
 
   return (
     <div className='m-auto min-h-screen w-full overflow-x-auto overflow-y-hidden px-[40px]'>
-      <div className='m-auto flex gap-4'>
-        <div className='flex gap-4'>
-          {columns.map((col) => (
-            <ColumnContainer column={col} deleteColumn={deleteColumn} />
-          ))}
+      <DndContext>
+        <div className='m-auto flex gap-4'>
+          <div className='flex gap-4'>
+            <SortableContext items={columnsId}>
+              {columns.map((col) => (
+                <ColumnContainer
+                  key={col.id}
+                  column={col}
+                  deleteColumn={deleteColumn}
+                />
+              ))}
+            </SortableContext>
+          </div>
+          <Button
+            className='h-6 text-xs bg-gray-300 text-black/75 hover:text-white/95 flex gap-2'
+            onClick={createColumn}>
+            <PlusCircle className='max-h-4' />
+            Add column
+          </Button>
         </div>
-        <Button
-          className='h-6 text-xs bg-gray-300 text-black/75 hover:text-white/95 flex gap-2'
-          onClick={createColumn}>
-          <PlusCircle className='max-h-4' />
-          Add column
-        </Button>
-      </div>
+      </DndContext>
     </div>
   );
 };
