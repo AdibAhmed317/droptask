@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Column, Id } from "@/lib/types";
 import { TrashIcon } from "lucide-react";
 import { useSortable } from "@dnd-kit/sortable";
@@ -10,6 +10,7 @@ interface ColumnContainerProps {
 }
 
 const ColumnContainer = ({ column, deleteColumn }: ColumnContainerProps) => {
+  const [editMode, setEditMode] = useState(false);
   const {
     setNodeRef,
     attributes,
@@ -49,6 +50,7 @@ const ColumnContainer = ({ column, deleteColumn }: ColumnContainerProps) => {
       <div
         {...attributes}
         {...listeners}
+        onClick={() => setEditMode(true)}
         className="bg-gray-700 text-sm text-white h-[60px] cursor-grab rounded-md rounded-b-none p-3 font-semibold border-columnBackgroundColor border-1 flex items-center justify-between"
       >
         <div className="flex gap-2">

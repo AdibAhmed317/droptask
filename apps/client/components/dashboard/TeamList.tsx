@@ -13,7 +13,7 @@ const TeamList = () => {
     <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
       <section className="container mt-10">
         <Link href="/dashboard/team/1/kanban">
-          <div className="max-w-[15rem] bg-gray-50 hover:bg-gray-200 transition-all shadow-lg rounded-lg overflow-hidden">
+          <div className="max-w-[15rem] min-w-[10rem] bg-gray-50 hover:bg-gray-200 transition-all shadow-lg rounded-lg overflow-hidden">
             <div className="flex items-center justify-center bg-gray-500 h-24">
               <h2 className="text-white text-4xl font-semibold">DT</h2>
             </div>
@@ -27,7 +27,7 @@ const TeamList = () => {
       </section>
       <section className="container mt-10">
         <Link href="/dashboard/team/1/kanban">
-          <div className="max-w-[15rem] bg-gray-50 hover:bg-gray-200 transition-all shadow-lg rounded-lg overflow-hidden">
+          <div className="max-w-[15rem] min-w-[10rem] bg-gray-50 hover:bg-gray-200 transition-all shadow-lg rounded-lg overflow-hidden">
             <div className="flex items-center justify-center bg-gray-500 h-24">
               <h2 className="text-white text-4xl font-semibold">DT</h2>
             </div>
@@ -41,7 +41,7 @@ const TeamList = () => {
       </section>
       <section className="container mt-10">
         <Link href="/dashboard/team/1/kanban">
-          <div className="max-w-[15rem] bg-gray-50 hover:bg-gray-200 transition-all shadow-lg rounded-lg overflow-hidden">
+          <div className="max-w-[15rem] min-w-[10rem] bg-gray-50 hover:bg-gray-200 transition-all shadow-lg rounded-lg overflow-hidden">
             <div className="flex items-center justify-center bg-gray-500 h-24">
               <h2 className="text-white text-4xl font-semibold">MT</h2>
             </div>

@@ -1,5 +1,5 @@
-import TeamHeader from '@/components/team/TeamHeader';
-import React from 'react';
+import TeamHeader from "@/components/team/TeamHeader";
+import React from "react";
 
 type Props = {
   children: React.ReactNode;
