@@ -7,9 +7,16 @@ import { CSS } from "@dnd-kit/utilities";
 interface ColumnContainerProps {
   column: Column;
   deleteColumn: (id: Id) => void;
+  updateColumn: (id: Id, title: string) => void;
 }
 
-const ColumnContainer = ({ column, deleteColumn }: ColumnContainerProps) => {
+// const updateColumn = () => {};
+
+const ColumnContainer = ({
+  column,
+  deleteColumn,
+  updateColumn,
+}: ColumnContainerProps) => {
   const [editMode, setEditMode] = useState(false);
   const {
     setNodeRef,
@@ -24,6 +31,7 @@ const ColumnContainer = ({ column, deleteColumn }: ColumnContainerProps) => {
       type: "Column",
       column,
     },
+    disabled: editMode,
   });
 
   const style = {
@@ -57,7 +65,22 @@ const ColumnContainer = ({ column, deleteColumn }: ColumnContainerProps) => {
           <div className="flex justify-center items-center bg-gray-800 px-2 py-1 text-sm rounded-sm">
             0
           </div>
-          {column.title}
+          {!editMode && column.title}
+          {editMode && (
+            <input
+              className="bg-gray-600 px-2 border rounded outline-none"
+              value={column.title}
+              onChange={(e) => updateColumn(column.id, e.target.value)}
+              autoFocus
+              onBlur={() => {
+                setEditMode(false);
+              }}
+              onKeyDown={(e) => {
+                if (e.key !== "Enter") return;
+                setEditMode(false);
+              }}
+            />
+          )}
         </div>
         <button onClick={() => deleteColumn(column.id)}>
           <TrashIcon className="max-h-4 w-full" />
