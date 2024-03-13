@@ -1,21 +1,24 @@
 import React, { useState } from "react";
-import { Column, Id } from "@/lib/types";
-import { TrashIcon } from "lucide-react";
+import { Column, Id, Task } from "@/lib/types";
+import { PlusCircleIcon, TrashIcon } from "lucide-react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import TaskCard from "./TaskCard";
 
 interface ColumnContainerProps {
   column: Column;
   deleteColumn: (id: Id) => void;
   updateColumn: (id: Id, title: string) => void;
+  createTask: (columnId: Id) => void;
+  tasks: Task[];
 }
-
-// const updateColumn = () => {};
 
 const ColumnContainer = ({
   column,
   deleteColumn,
   updateColumn,
+  createTask,
+  tasks,
 }: ColumnContainerProps) => {
   const [editMode, setEditMode] = useState(false);
   const {
@@ -86,8 +89,22 @@ const ColumnContainer = ({
           <TrashIcon className="max-h-4 w-full" />
         </button>
       </div>
-      <div className="flex flex-grow">Content</div>
-      <div>footer</div>
+      <div className="flex flex-grow flex-col gap-4 p-2 overflow-x-hidden overflow-y-auto">
+        {tasks?.map((task) => (
+          <div key={task.id}>
+            <TaskCard task={task} />
+          </div>
+        ))}
+      </div>
+      <button
+        className="flex gap-2 items-center rounded-b-md p-2 bg-gray-500 text-white hover:text-gray-700"
+        onClick={() => {
+          createTask(column.id);
+        }}
+      >
+        <PlusCircleIcon className="max-h-5" />
+        Add Task
+      </button>
     </div>
   );
 };

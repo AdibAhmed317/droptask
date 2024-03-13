@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Column, Id } from "@/lib/types";
+import { Column, Id, Task } from "@/lib/types";
 import React, { useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import ColumnContainer from "./ColumnContainer";
@@ -29,6 +29,7 @@ const KanbanBoard = () => {
       },
     })
   );
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   const createColumn = () => {
     const columnToAdd: Column = {
@@ -85,8 +86,18 @@ const KanbanBoard = () => {
     });
   };
 
+  const createTask = (columnId: Id) => {
+    const newTask: Task = {
+      id: uuidv4(),
+      columnId,
+      content: `Task ${tasks.length + 1}`,
+    };
+
+    setTasks([...tasks, newTask]);
+  };
+
   return (
-    <div className="m-auto min-h-screen w-full overflow-x-auto overflow-y-hidden px-[40px]">
+    <div className="m-auto w-full overflow-x-auto overflow-y-hidden px-[40px] py-5">
       <DndContext
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
@@ -101,6 +112,8 @@ const KanbanBoard = () => {
                   column={col}
                   deleteColumn={deleteColumn}
                   updateColumn={updateCoulmn}
+                  createTask={createTask}
+                  tasks={tasks.filter((task) => task.columnId === col.id)}
                 />
               ))}
             </SortableContext>
@@ -120,6 +133,10 @@ const KanbanBoard = () => {
                 column={activeColumn}
                 deleteColumn={deleteColumn}
                 updateColumn={updateCoulmn}
+                createTask={createTask}
+                // tasks={tasks.filter(
+                //   (task) => task.columnId === activeColumn.id
+                // )}
               />
             )}
           </DragOverlay>,
